@@ -36,7 +36,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: Platform.select({
+      ios: 'green',
+      android: 'blue'
+    })
   },
   welcome: {
     fontSize: 20,
