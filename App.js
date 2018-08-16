@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import Header from './src/screens/components/header';
 
 import Home from './src/screens/containers/home';
 
@@ -14,7 +15,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Home>
-        <Text>header</Text>
+        <Header />
         <Text>buscador</Text>
         <Text>categoria</Text>
         <Text>sugerencias</Text>
