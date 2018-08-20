@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import Header from './src/screens/components/header';
-import SuggestionList from './src/screens/containers/suggestion-list';
+import SuggestionList from './src/videos/containers/suggestion-list';
 
 import Home from './src/screens/containers/home';
 
