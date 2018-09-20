@@ -14,9 +14,7 @@ const VerticalSeparator = props => {
         styles.separator,
         { borderTopColor: props.color ? props.color : '#eaeaea' }
       ]}
-    >
-      <Text>Esto es un separador</Text>
-    </View>
+    />
   );
 };
 
