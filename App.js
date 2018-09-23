@@ -4,10 +4,11 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { Text, View } from 'react-native';
 import Header from './src/screens/components/header';
 import SuggestionList from './src/videos/containers/suggestion-list';
+import CategoryList from './src/videos/containers/category-list';
 import Loader from './src/loader/components/loader';
 import API from './utils/api';
 
@@ -17,12 +18,15 @@ type Props = {};
 export default class App extends Component<Props> {
   state = {
     suggestionList: [],
+    categoryList: [],
     loading: true
   };
   async componentDidMount() {
     const movies = await API.getSuggestion(10);
+    const categories = await API.getMovies();
     this.setState({
       suggestionList: movies,
+      categoryList: categories,
       loading: false
     });
   }
@@ -35,7 +39,10 @@ export default class App extends Component<Props> {
         {this.state.loading ? (
           <Loader />
         ) : (
-          <SuggestionList list={this.state.suggestionList} />
+          <Fragment>
+            <CategoryList list={this.state.categoryList} />
+            <SuggestionList list={this.state.suggestionList} />
+          </Fragment>
         )}
       </Home>
     );
