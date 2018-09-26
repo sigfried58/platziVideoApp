@@ -13,15 +13,21 @@ const styles = StyleSheet.create({
   genre: {
     color: 'white',
     fontSize: 40,
-    fontWeight: 'bold',
-    textShadowColor: 'rgba(0,0,0, .75)',
-    textShadowOffset: {
-      width: 2,
-      height: 2
+    fontWeight: 'bold'
+  },
+  shadow: Platform.select({
+    ios: {
+      textShadowColor: 'rgba(0,0,0,.75)',
+      textShadowOffset: {
+        width: 2,
+        height: 2
+      },
+      textShadowRadius: 0
     },
-    textShadowRadius: 0,
-    elevation: 2
-  }
+    android: {
+      elevation: 2
+    }
+  })
 });
 
 const Category = props => {
@@ -35,7 +41,7 @@ const Category = props => {
         uri: props.background_image
       }}
     >
-      <Text style={styles.genre}>{props.genres[0]}</Text>
+      <Text style={[styles.genre, styles.shadow]}>{props.genres[0]}</Text>
     </ImageBackground>
   );
 };
